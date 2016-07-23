@@ -9,7 +9,7 @@
 #+end_src
 
 * Customize settings
-
+  
 Set up the customize file to its own separate file, instead of saving
 customize settings in [[file:init.el][init.el]]. 
 
@@ -93,3 +93,18 @@ at point as the default value for occur.
 
 (bind-key "M-s o" 'occur-dwim)
 #+end_src
+
+* Org bullets
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook #'org-bullets-mode))
+#+END_SRC
+
+* Magit
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :bind (("C-x g" . magit-status)))
+#+END_SRC
