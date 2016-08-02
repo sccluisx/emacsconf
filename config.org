@@ -129,3 +129,31 @@ at point as the default value for occur.
 
   (helm-mode 1))
 #+END_SRC
+* Themes
+** Zen Theme
+#+BEGIN_SRC emacs-lisp
+  (use-package zenburn-theme
+    :ensure t
+  )
+#+END_SRC
+* Key bindings
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+#+END_SRC
+* Initialization
+#+BEGIN_SRC emacs-lisp
+  (split-window-vertically)
+  (find-file "/home/lramirez/Dropbox/linux_sync/orgs/main.org")
+  (split-window-horizontally)
+  (windmove-down)
+  (let ((default-directory "/home/lramirez/"))
+    (shell "*shell1*")
+    (shell "*shell2*")
+  (windmove-up)
+  (windmove-right)
+  (switch-to-buffer "*scratch*")
+
+  (setq org-directory "~/Dropbox/linux_sync/orgs")
+#+END_SRC
+
+ 
