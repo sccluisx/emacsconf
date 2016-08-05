@@ -104,6 +104,7 @@ at point as the default value for occur.
     :bind (("C-x g" . magit-status)))
 #+END_SRC
 * Helm
+** Main
 #+BEGIN_SRC emacs-lisp
   (use-package helm
     :ensure t
@@ -127,8 +128,37 @@ at point as the default value for occur.
         helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
         helm-ff-file-name-history-use-recentf t)
 
+  (helm-autoresize-mode t)
+
+
+  (setq helm-locate-fuzzy-match t)
+
+  (global-set-key (kbd "C-x b") 'helm-mini)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
   (helm-mode 1))
 #+END_SRC
+** Helm Projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-projectile
+    :ensure t)
+#+END_SRC
+** Helm Spotify
+ #+BEGIN_SRC emacs-lisp
+   (use-package helm-spotify
+     :ensure t)
+ 
+;;helm spotify has errors if called without debug-on-error set. So i wrote this wrapper
+(defun john-spotify ()
+  "wrapper for calling spotify from keyboard shortcut and removing possibility for error"
+  (interactive)
+  (setq debug-on-error t)
+  (helm-spotify)
+  (setq debug-on-error nil))
+
+(global-set-key (kbd "<C-M-s-next>") 'john-spotify)
+ #+END_SRC
+
 * Themes
 ** Zen Theme
 #+BEGIN_SRC emacs-lisp
@@ -139,21 +169,35 @@ at point as the default value for occur.
 * Key bindings
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+  ;; helm keybindings
+  (global-set-key (kbd "M-x") 'helm-M-x)
 #+END_SRC
+
 * Initialization
 #+BEGIN_SRC emacs-lisp
-  (split-window-vertically)
+  (split-window-vertically)               
   (find-file "/home/lramirez/Dropbox/linux_sync/orgs/main.org")
   (split-window-horizontally)
   (windmove-down)
-  (let ((default-directory "/home/lramirez/"))
-    (shell "*shell1*")
-    (shell "*shell2*")
+  (shell "*shell1*")
+  (shell "*shell2*")
   (windmove-up)
   (windmove-right)
   (switch-to-buffer "*scratch*")
-
   (setq org-directory "~/Dropbox/linux_sync/orgs")
 #+END_SRC
 
- 
+* Developer
+** General features
+*** GGTAGS
+#+BEGIN_SRC emacs-lisp
+  (use-package ggtags
+    :ensure t
+    :config
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+                  (ggtags-mode t))))
+  )
+#+END_SRC
