@@ -104,8 +104,13 @@ at point as the default value for occur.
     :bind (("C-x g" . magit-status)))
 #+END_SRC
 * Helm
+** Setup helm
+#+BEGIN_SRC emacs-lisp
+
+#+END_SRC
 ** Main
 #+BEGIN_SRC emacs-lisp
+
   (use-package helm
     :ensure t
     :config
@@ -192,7 +197,17 @@ at point as the default value for occur.
 ** General features
 *** GGTAGS
 #+BEGIN_SRC emacs-lisp
-  (use-package ggtags
+  (setq
+   helm-gtags-ignore-case t
+   helm-gtags-auto-update t
+   helm-gtags-use-input-at-cursor t
+   helm-gtags-pulse-at-cursor t
+   helm-gtags-prefix-key "\C-cg"
+   helm-gtags-suggested-key-mapping t
+   )
+
+
+  (use-package helm-gtags
     :ensure t
     :config
     (add-hook 'c-mode-common-hook
@@ -201,3 +216,4 @@ at point as the default value for occur.
                   (ggtags-mode t))))
   )
 #+END_SRC
+*** C++ IDE
