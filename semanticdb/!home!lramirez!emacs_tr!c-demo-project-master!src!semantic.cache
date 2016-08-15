@@ -1,0 +1,53 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("lib1.h" include nil nil [1 18])
+            ("lib2.h" include nil nil [19 36])
+            ("feature1/feature1.h" include nil nil [37 67])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [77 86])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [87 100]))                  
+                :type "int")
+                nil [68 118]))          
+      :file "main.c"
+      :pointmax 119
+      :fsize 118
+      :lastmodtime '(22446 1526 958799 821000)
+      :unmatched-syntax nil)
+    (semanticdb-table "main.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [2 21])
+            ("cstdio" include (:system-flag t) nil [22 39])
+            ("unordered_map" include (:system-flag t) nil [40 64])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [65 85])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [96 105])
+                    ("argv" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [106 118]))                  
+                :type "int")
+                nil [87 180]))          
+      :file "main.cc"
+      :pointmax 181
+      :fsize 168
+      :lastmodtime '(22447 25043 15874 432000)
+      :unmatched-syntax nil))
+  :file "!home!lramirez!emacs_tr!c-demo-project-master!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
