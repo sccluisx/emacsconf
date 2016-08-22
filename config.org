@@ -102,6 +102,7 @@ at point as the default value for occur.
   (use-package magit
     :ensure t
     :bind (("C-x g" . magit-status)))
+(setq magit-git-executable "~/tools/bin/git")
 #+END_SRC
 * Helm
 ** Setup helm
@@ -318,7 +319,7 @@ Helm imenu
 
   (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 #+END_SRC
-*** C++ IDE
+    
 ** function args packages
 #+BEGIN_SRC emacs-lisp
   (use-package function-args
@@ -355,12 +356,6 @@ Helm imenu
 #+END_SRC
 ** CEDET
 #+BEGIN_SRC emacs-lisp
-  ;;(require 'cl)
-  ;;(require 'pulse)
- 
-  ;; (load-file (concat user-emacs-directory "/cedet/cedet-devel-load.el"))
-  ;;(load-file (concat user-emacs-directory "/cedet/contrib/cedet-contrib-load.el"))
-
 (require 'cc-mode)
 (require 'semantic)
 
@@ -368,12 +363,221 @@ Helm imenu
 (global-semantic-idle-scheduler-mode 1)
 
 (semantic-mode 1)
-
 #+END_SRC
 ** Yasnipet
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
       :ensure t)
   (yas-global-mode 1)
+#+END_SRC
+** Global Semantic idle
+#+BEGIN_SRC emacs-lisp
+ (global-semantic-idle-summary-mode 1)
+ (load "~/.emacs.d/stickyfunc-enhance.el")
+ (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+ (semantic-mode 1)
+ (require 'stickyfunc-enhance)
+ (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
+#+END_SRC
+** Source code editing
+*** Folding 
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'c-mode-common-hook   'hs-minor-mode)
+#+END_SRC
+*** Identation
+#+BEGIN_SRC emacs-lisp
+  ;; Available C style:
+  ;; “gnu”: The default style for GNU projects
+  ;; “k&r”: What Kernighan and Ritchie, the authors of C used in their book
+  ;; “bsd”: What BSD developers use, aka “Allman style” after Eric Allman.
+  ;; “whitesmith”: Popularized by the examples that came with Whitesmiths C, an early commercial C compiler.
+  ;; “stroustrup”: What Stroustrup, the author of C++ used in his book
+  ;; “ellemtel”: Popular C++ coding standards as defined by “Programming in C++, Rules and Recommendations,” Erik Nyquist and Mats Henricson, Ellemtel
+  ;; “linux”: What the Linux developers use for kernel development
+  ;; “python”: What Python developers use for extension modules
+  ;; “java”: The default style for java-mode (see below)
+  ;; “user”: When you want to define your own style
+  (setq
+   c-default-style "linux" ;; set style to "linux"
+   )
+#+END_SRC
+Setup identation
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 
+;;activate whitespace-mode to view all whitespace characters
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+
+;; show unncessary whitespace that can mess up your diff
+(add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
+
+;; use space to indent by default
+(setq-default indent-tabs-mode nil)
+
+;; set appearance of a tab that is represented by 4 spaces
+(setq-default tab-width 4)
+
+(setq-default c-basic-offset 2)
+
+#+END_SRC
+
+** Google Style
+#+BEGIN_SRC emacs-lisp
+    (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+    (add-hook 'c-mode-common-hook 'google-set-c-style)
+#+END_SRC
+
+** SmartParens
+
+#+BEGIN_SRC emacs-lisp
+  ; Package: smartparens
+  (use-package smartparens
+    :ensure t)
+  (require 'smartparens-config)
+  (show-smartparens-global-mode +1)
+  (smartparens-global-mode 1)
+
+  ;; when you press RET, the curly braces automatically
+  ;; add another newline
+  (sp-with-modes '(c-mode c++-mode)
+    (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+    (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
+                                              ("* ||\n[i]" "RET"))))
+#+END_SRC
+** Compilation mode
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "<f5>") (lambda ()
+                               (interactive)
+                               (setq-local compilation-read-command nil)
+                               (call-interactively 'compile)))
+#+END_SRC
+** Debugging
+#+BEGIN_SRC emacs-lisp
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+ )
+#+END_SRC
+** Autocomplete
+#+BEGIN_SRC emacs-lisp
+(use-package auto-complete
+   :ensure t)
+  (require 'auto-complete-config)
+(ac-config-default)
+#+END_SRC
+** Headers
+#+BEGIN_SRC emacs-lisp
+(use-package auto-complete-c-headers
+:ensure t)
+(defun my:ac-c-header-init()
+    (require 'auto-complete-c-headers)
+    (add-to-list 'ac-sources 'ac-source-c-headers))
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+#+END_SRC
+
+** Iedit
+#+BEGIN_SRC emacs-lisp
+  (use-package iedit
+    :ensure t)
+#+END_SRC   
+
+** Flymake
+#+BEGIN_SRC emacs-lisp
+  (use-package flymake-google-cpplint
+    :ensure t)
+
+  (defun my:flymake-google-init ()
+    ;;(require 'flymake-google-cpplint)
+    (custom-set-variables
+     '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
+      (flymake-google-cpplint-load))
+  )
+
+  (add-hook 'c-mode-hook 'my:flymake-google-init)
+  (add-hook 'c++-mode-hook 'my:flymake-google-init)
+#+END_SRC
+
+** fic-mode
+#+BEGIN_SRC emacs-lisp
+  (use-package fic-mode
+    :ensure t)
+(require 'fic-mode)
+  (add-hook 'c++-mode-hook (fic-mode 1))
+  (add-hook 'emacs-lisp-mode-hook (fic-mode 1))
+#+END_SRC
+* Markdown
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode
+  :ensure t)
+(use-package markdown-mode+
+  :ensure t)
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+#+END_SRC
+* Cursor Terminal Interface
+#+BEGIN_SRC emacs-lisp
+;; Enable mouse in terminal mode
+(unless (display-graphic-p)
+(xterm-mouse-mode))
+#+END_SRC
+* Printing (falta instalar cups)
+
+#+BEGIN_SRC emacs-lisp
+  (require 'printing)
+  ;; Convenient printing
+  (require 'printing)
+  (pr-update-menus t)
+  ; make sure we use localhost as cups server
+  (setenv "CUPS_SERVER" "localhost")
+  ;;(use-package cups
+  ;; :ensure t)
+#+END_SRC
+* EMACS GUIDE 
+http://www.draketo.de/light/english/emacs/babcore
+
+#+BEGIN_SRC emacs-lisp
+  ;; outlining everywhere
+  (allout-mode)
+  ;; 3.9 Nice line wrapping
+  (global-visual-line-mode t)
+  ;; 3.11 flyspell
+  (use-package flyspell
+    :ensure t)
+  ; Make german umlauts work.
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+
+  ;aspell und flyspell
+  (setq-default ispell-program-name "aspell")
+
+  ;make aspell faster but less correctly
+  (setq ispell-extra-args '("--sug-mode=ultra" "-w" "äöüÄÖÜßñ"))
+  (setq ispell-list-command "list")
+
+;; 
+#+END_SRC
+* Dired plus
+
+#+BEGIN_SRC emacs-lisp
+  (use-package dired+
+    :ensure t)
+#+END_SRC
+* Nyancat 
+#+BEGIN_SRC emacs-lisp
+  (use-package nyan-mode
+    :ensure t)
+  (use-package nyan-prompt
+    :ensure t)
+  (nyan-mode t)
 #+END_SRC

@@ -1,0 +1,49 @@
+;; Object bisquick/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bisquick/"
+  :tables
+  (list
+    (semanticdb-table "Makefile.am"
+      :major-mode 'makefile-automake-mode
+      :tags 
+        '( ("AUTOMAKE_OPTIONS" variable (:default-value ("foreign")) nil [212 239])
+            ("SUBDIRS" variable (:default-value ("src")) nil [296 310]))          
+      :file "Makefile.am"
+      :pointmax 310
+      :fsize 309
+      :lastmodtime '(22458 23766 553587 406000)
+      :unmatched-syntax nil)
+    (semanticdb-table "config.h"
+      :major-mode 'c-mode
+      :tags 
+        '( ("PACKAGE" variable (:constant-flag t) nil [155 162])
+            ("PACKAGE_BUGREPORT" variable (:constant-flag t) nil [262 279])
+            ("PACKAGE_NAME" variable (:constant-flag t) nil [339 351])
+            ("PACKAGE_STRING" variable (:constant-flag t) nil [431 445])
+            ("PACKAGE_TARNAME" variable (:constant-flag t) nil [529 544])
+            ("PACKAGE_URL" variable (:constant-flag t) nil [613 624])
+            ("PACKAGE_VERSION" variable (:constant-flag t) nil [682 697])
+            ("VERSION" variable (:constant-flag t) nil [745 752]))          
+      :file "config.h"
+      :pointmax 759
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("PACKAGE" . ((string "\"bisquick\"" 163 . 173)))
+          ("PACKAGE_TARNAME" . ((string "\"bisquick\"" 545 . 555)))
+          ("PACKAGE_VERSION" . ((string "\"0.1\"" 698 . 703)))
+          ("PACKAGE_URL" . ((string "\"\"" 625 . 627)))
+          ("PACKAGE_BUGREPORT" . ((string "\"\"" 280 . 282)))
+          ("VERSION" . ((string "\"0.1\"" 753 . 758)))
+          ("PACKAGE_NAME" . ((string "\"bisquick\"" 352 . 362)))
+          ("PACKAGE_STRING" . ((string "\"bisquick 0.1\"" 446 . 460)))
+          )
+)
+    (semanticdb-table "config.h.in"
+      :major-mode 'c-mode
+      :tags nil
+      :file "config.h.in"
+      :pointmax 626
+      :unmatched-syntax nil))
+  :file "!home!lramirez!work!bisquick!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

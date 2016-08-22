@@ -1,0 +1,46 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "bisquick.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("seqan/file.h" include (:system-flag t) nil [21 44])
+            ("seqan/sequence.h" include (:system-flag t) nil [45 72])
+            ("seqan" using (:type ("seqan" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [74 96])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [107 116])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [117 130]))                  
+                :type "int")
+                nil [98 931]))          
+      :file "bisquick.cc"
+      :pointmax 932
+      :fsize 931
+      :lastmodtime '(22458 24229 942092 794000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Makefile.am"
+      :major-mode 'makefile-automake-mode
+      :tags 
+        '( ("AM_LDFLAGS" variable (:default-value ("-lgomp" "-ggdb3")) nil [1 28])
+            ("AM_CPPFLAGS" variable (:default-value ("-Wno-deprecated" "-Wall" "$(SEQAN_CFLAGS)" "-fopenmp" "-ggdb3" "-std=c++14")) nil [28 107])
+            ("AM_CXXFLAGS" variable (:default-value ("-O0" "-pg" "-gstabs" "-ggdb3")) nil [107 145])
+            ("bin_PROGRAMS" variable (:default-value ("$(top_builddir)/bin/bisquick")) nil [177 221])
+            (".._bin_bisquick_SOURCES" variable (:default-value ("bisquick.cc")) nil [241 272]))          
+      :file "Makefile.am"
+      :pointmax 826
+      :fsize 825
+      :lastmodtime '(22458 24143 597998 624000)
+      :unmatched-syntax nil))
+  :file "!home!lramirez!work!bisquick!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

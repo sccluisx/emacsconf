@@ -1,8 +1,31 @@
-;; -*- emacs-lisp -*- <16/08/10 22:00:36 /home/lramirez/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/08/22 02:40:18 /home/lramirez/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
-((["scp" "lramirez" "srv-97-31" nil nil]
+((["scp" nil "srv-97-31" nil nil]
+  ("locale" "LC_ALL=en_US.utf8")
+  ("uname" "Linux 3.10.96.1.amd64-smp")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("~" "/home/lramirez")
+  ("file-exists" "test -e")
+  ("stat" "\\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 7000)
+  ("gid-string" "imprs-usr")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("git" "\\git")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("uid-integer" 22024)
+  ("~g" "/bin/sh: 51: cd: can't cd to ~g")
+  ("~." "/bin/sh: 51: cd: can't cd to ~."))
+ (["scp" "lramirez" "srv-97-31" nil nil]
   ("locale" "LC_ALL=en_US.utf8")
   ("uname" "Linux 3.10.96.1.amd64-smp")
   ("test" "test")
@@ -18,4 +41,8 @@
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
-  ("git" "\\git")))
+  ("~" "/home/lramirez")
+  ("git" "\\git")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("uid-integer" 22024)))

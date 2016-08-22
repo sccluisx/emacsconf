@@ -1,3 +1,4 @@
+
 ;;; Begin initialization
 ;; Turn off mouse interface early in startup to avoid momentary display
 (when window-system
@@ -13,7 +14,13 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages"))
 (package-initialize)
+
+;(require 'package)
+;(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;                        ("marmalade" . "https://marmalade-repo.org/packages/")
+;                        ("melpa" . "https://melpa.org/packages/")))
 
 ;;; Bootstrap use-package
 ;; Install use-package if it's not already installed.

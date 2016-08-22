@@ -1,0 +1,33 @@
+;; Object cpp_test/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "cpp_test/"
+  :tables
+  (list
+    (semanticdb-table "pruebas.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [23 43])
+            ("main" function (:type "int") nil [45 109]))          
+      :file "pruebas.cc"
+      :pointmax 110
+      :fsize 107
+      :lastmodtime '(22454 5884 676502 228000)
+      :unmatched-syntax '((punctuation 21 . 22) (symbol 13 . 21) (punctuation 12 . 13) (symbol 4 . 11) (punctuation 3 . 4) (symbol 1 . 3) (punctuation 21 . 22) (symbol 13 . 21) (punctuation 12 . 13) (symbol 4 . 11) (punctuation 3 . 4) (symbol 1 . 3) (punctuation 21 . 22) (symbol 13 . 21) (punctuation 12 . 13) (symbol 4 . 11) (punctuation 3 . 4) (symbol 1 . 3) (punctuation 21 . 22) (symbol 13 . 21) (punctuation 12 . 13) (symbol 4 . 11) (punctuation 3 . 4) (symbol 1 . 3) (punctuation 21 . 22) (symbol 13 . 21) (punctuation 12 . 13) (symbol 4 . 11) (punctuation 3 . 4) (symbol 1 . 3)))
+    (semanticdb-table "Makefile"
+      :major-mode 'makefile-gmake-mode
+      :tags 
+        '( ("default" function (:arguments ("pruebas")) nil [1 18])
+            ("pruebas.o" function (:arguments ("pruebas.cc")) nil [19 95])
+            ("pruebas" function (:arguments ("pruebas.o")) nil [96 141])
+            ("clean" function nil nil [142 183]))          
+      :file "Makefile"
+      :pointmax 183
+      :fsize 182
+      :lastmodtime '(22453 65453 596205 50000)
+      :unmatched-syntax nil))
+  :file "!home!lramirez!cpp_test!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

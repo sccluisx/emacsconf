@@ -1,0 +1,23 @@
+;; Object SEECER/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "SEECER/"
+  :tables
+  (list
+    (semanticdb-table "Makefile.am"
+      :major-mode 'makefile-automake-mode
+      :tags 
+        '( ("AM_LDFLAGS" variable (:default-value ("-lgomp" "-ggdb3")) nil [1 28])
+            ("AM_CPPFLAGS" variable (:default-value ("-Wno-deprecated" "-Wall" "$(SEQAN_CFLAGS)" "-fopenmp" "-ggdb3")) nil [28 96])
+            ("AM_CXXFLAGS" variable (:default-value ("-O0" "-pg" "-gstabs" "-ggdb3")) nil [96 133])
+            ("bin_PROGRAMS" variable (:default-value ("bin/seecer" "bin/random_sub_N" "bin/replace_ids")) nil [134 199])
+            ("bin_seecer_SOURCES" variable (:default-value ("src/seecer_main.cpp" "src/common.cpp" "src/hashmap_read_finder.cpp" "src/hmm_cluster.cpp" "src/smart_hashmap_read_finder.cpp" "src/stats_keeper.cpp")) nil [200 374])
+            ("bin_random_sub_N_SOURCES" variable (:default-value ("pipeline/random_sub_N.cc")) nil [375 427])
+            ("bin_replace_ids_SOURCES" variable (:default-value ("pipeline/replace_ids.cc")) nil [427 477]))          
+      :file "Makefile.am"
+      :pointmax 477
+      :fsize 476
+      :lastmodtime '(22214 32504)
+      :unmatched-syntax nil))
+  :file "!scp:lramirez@srv-97-31:!MMCI!MS!MethylationAlgos!work!tests!seecer!web_ver!SEECER-0.1.3!SEECER!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

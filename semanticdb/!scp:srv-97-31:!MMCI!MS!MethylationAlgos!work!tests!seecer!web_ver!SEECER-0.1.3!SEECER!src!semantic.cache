@@ -1,0 +1,123 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "seecer_main.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("SEQAN_PARALLEL" variable (:constant-flag t) nil [754 768])
+            ("cstdio" include (:system-flag t) nil [770 787])
+            ("fstream" include (:system-flag t) nil [788 806])
+            ("getopt.h" include (:system-flag t) nil [807 826])
+            ("iostream" include (:system-flag t) nil [827 846])
+            ("set" include (:system-flag t) nil [847 861])
+            ("stdlib.h" include (:system-flag t) nil [862 881])
+            ("stdio.h" include (:system-flag t) nil [882 900])
+            ("time.h" include (:system-flag t) nil [901 918])
+            ("vector" include (:system-flag t) nil [919 936])
+            ("omp.h" include (:system-flag t) nil [938 954])
+            ("gsl/gsl_permutation.h" include (:system-flag t) nil [955 987])
+            ("gsl/gsl_randist.h" include (:system-flag t) nil [988 1016])
+            ("common.h" include nil nil [1018 1037])
+            ("hashmap_read_finder.h" include nil nil [1038 1070])
+            ("hmm_cluster.h" include nil nil [1071 1095])
+            ("smart_hashmap_read_finder.h" include nil nil [1096 1134])
+            ("stats_keeper.h" include nil nil [1135 1160])
+            ("DEBUG" variable (:constant-flag t) nil [1185 1190])
+            ("seqan" using (:type ("seqan" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1201 1223])
+            ("ReadFastaFiles" function
+               (:arguments 
+                  ( ("fragStore" variable
+                       (:reference 1
+                        :type ("THMMFragStore" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1245 1270])
+                    ("fn1" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1277 1287])
+                    ("fn2" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1288 1298]))                  
+                :type "bool")
+                nil [1225 1892])
+            ("help_msg" function (:type "void") nil [1895 3085])
+            ("writeContig" function
+               (:arguments 
+                  ( ("param" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("HMMParameters" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3104 3131])
+                    ("f" variable
+                       (:reference 1
+                        :type ("std::ofstream" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3132 3149])
+                    ("contig" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DnaString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3153 3177])
+                    ("res" variable
+                       (:reference 1
+                        :type ("Cluster" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3178 3191]))                  
+                :type "void")
+                nil [3087 3647])
+            ("correct_errors" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [3668 3677])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [3678 3692]))                  
+                :type "int")
+                nil [3649 14191])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [14202 14211])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [14212 14226]))                  
+                :type "int")
+                nil [14193 14542]))          
+      :file "seecer_main.cpp"
+      :pointmax 14543
+      :fsize 14542
+      :lastmodtime '(22214 35040)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SEQAN_PARALLEL")
+          ("DEBUG" . ((number "0" 1191 . 1192)))
+          )
+)
+    (semanticdb-table "common.h"
+      :file "common.h"
+      :fsize 3522
+      :lastmodtime '(20728 19785))
+    (semanticdb-table "hashmap_read_finder.h"
+      :file "hashmap_read_finder.h"
+      :fsize 2195
+      :lastmodtime '(20728 19785))
+    (semanticdb-table "hmm_cluster.h"
+      :file "hmm_cluster.h"
+      :fsize 9941
+      :lastmodtime '(20728 19785))
+    (semanticdb-table "smart_hashmap_read_finder.h"
+      :file "smart_hashmap_read_finder.h"
+      :fsize 2241
+      :lastmodtime '(20728 19785))
+    (semanticdb-table "stats_keeper.h"
+      :file "stats_keeper.h"
+      :fsize 2544
+      :lastmodtime '(20728 19785)))
+  :file "!scp:srv-97-31:!MMCI!MS!MethylationAlgos!work!tests!seecer!web_ver!SEECER-0.1.3!SEECER!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

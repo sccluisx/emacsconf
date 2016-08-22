@@ -1,0 +1,48 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "bisquick.cpp"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [22 42])
+            ("main" function (:type "int") nil [45 72]))          
+      :file "bisquick.cpp"
+      :pointmax 73
+      :unmatched-syntax nil)
+    (semanticdb-table "bisquick.h"
+      :major-mode 'c-mode
+      :tags nil
+      :file "bisquick.h"
+      :pointmax 1
+      :fsize 0
+      :lastmodtime '(22456 34548)
+      :unmatched-syntax '((CLASS 1 . 6) (symbol 7 . 11) (CLASS 1 . 6) (CLASS 1 . 6) (punctuation 1 . 2) (punctuation 10 . 11) (symbol 2 . 9) (punctuation 1 . 2)))
+    (semanticdb-table "Makefile.am"
+      :major-mode 'makefile-automake-mode
+      :tags 
+        '( ("bin_PROGRAMS" variable (:default-value ("bisquick")) nil [31 55])
+            ("bisquick_SOURCES" variable (:default-value ("bisquick.cc")) nil [55 86]))          
+      :file "Makefile.am"
+      :pointmax 189
+      :fsize 188
+      :lastmodtime '(22456 38338)
+      :unmatched-syntax nil)
+    (semanticdb-table "bisquick.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("main" function (:type "int") nil [24 140]))          
+      :file "bisquick.cc"
+      :pointmax 141
+      :fsize 140
+      :lastmodtime '(22456 38751)
+      :unmatched-syntax nil))
+  :file "!scp:srv-97-31:!MMCI!MS!MethylationAlgos!work!bisquick!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

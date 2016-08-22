@@ -42,11 +42,11 @@
                         :type "char")
                         (reparse-symbol arg-sub-list) [106 118]))                  
                 :type "int")
-                nil [87 180]))          
+                nil [87 170]))          
       :file "main.cc"
-      :pointmax 181
-      :fsize 168
-      :lastmodtime '(22447 25043 15874 432000)
+      :pointmax 171
+      :fsize 171
+      :lastmodtime '(22450 7792 653862 760000)
       :unmatched-syntax nil))
   :file "!home!lramirez!emacs_tr!c-demo-project-master!src!semantic.cache"
   :semantic-tag-version "2.0"

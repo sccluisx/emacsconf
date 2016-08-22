@@ -1,0 +1,33 @@
+;; Object src/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "src/"
+  :tables
+  (list
+    (semanticdb-table "bisquick.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("seqan/file.h" include (:system-flag t) nil [21 44])
+            ("seqan/sequence.h" include (:system-flag t) nil [45 72])
+            ("seqan" using (:type ("seqan" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [74 96])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [111 120])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [121 134]))                  
+                :type "int")
+                nil [102 193]))          
+      :file "bisquick.cc"
+      :pointmax 194
+      :fsize 193
+      :lastmodtime '(22458 9228)
+      :unmatched-syntax nil))
+  :file "!scp:lramirez@srv-97-31:!MMCI!MS!MethylationAlgos!work!bisquick!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
